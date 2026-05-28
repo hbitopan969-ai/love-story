@@ -155,7 +155,7 @@
             box-shadow: 0 0 25px #ff7eb3, 0 0 10px #fff;
         }
 
-        /* New Music Button Style */
+        /* Music Button Style */
         .music-btn {
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid #ff758c;
@@ -218,7 +218,7 @@
 
     <!-- Main Card -->
     <div class="container">
-        <!-- Rotating Group DP -->
+        <!-- Rotating Group DP (Direct ImgBB link) -->
         <img class="gc-dp" src="https://i.ibb.co/680fVfF/image.jpg" alt="Group DP">
 
         <!-- GC Name -->
@@ -226,7 +226,7 @@
         
         <div class="welcome-msg">💞 Welcome To Our Cute & Beautiful World 💞</div>
 
-        <!-- Rules Box -->
+        <!-- Rules Box (POORA DESCRIPTION ADDED) -->
         <div class="rules-box">
             <ul>
                 <li>💖 Respect Everyone</li>
@@ -256,14 +256,14 @@
         var music = document.getElementById("bg-music");
         var btn = document.getElementById("music-control");
 
-        // Try to autoplay when user clicks anywhere on the page
+        // Autoplay play on first click anywhere on screen
         document.body.addEventListener('click', function() {
             if (music.paused && btn.innerText === "🎵 Play Music") {
                 music.play().then(() => {
                     btn.innerHTML = "⏸️ Pause Music";
                 }).catch(err => console.log("Autoplay blocked"));
             }
-        }, { once: true }); // Sirf pehli click par chalega
+        }, { once: true });
 
         function toggleMusic() {
             if (music.paused) {
