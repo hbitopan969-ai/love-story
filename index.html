@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸『𝓛𝓸𝓿𝓮 𝓢𝓽𝓸𝓻𝔂』🌸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Full Screen Background Video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Dark Overlay to make text readable */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        /* Moving Username (OGGY) */
+        .moving-name {
+            position: fixed;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff758c;
+            text-shadow: 0 0 10px #ff758c, 0 0 20px #ff758c;
+            white-space: nowrap;
+            animation: floatAround 15s linear infinite alternate;
+            z-index: 10;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 450px;
+            background: rgba(255, 192, 203, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 117, 140, 0.4);
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(255, 117, 140, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Rotating DP Style */
+        .gc-dp {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff758c;
+            box-shadow: 0 0 20px #ff758c;
+            animation: rotateDP 10s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Glowing Text Effects */
+        .gc-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 8px #ff758c, 0 0 15px #ff758c;
+            margin-bottom: 15px;
+        }
+
+        .welcome-msg {
+            font-size: 1rem;
+            color: #ffe3e8;
+            font-style: italic;
+            text-shadow: 0 0 5px rgba(255,117,140,0.6);
+            margin-bottom: 20px;
+        }
+
+        /* Rules & Description Box */
+        .rules-box {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 4px solid #ff758c;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .rules-box ul {
+            list-style: none;
+        }
+
+        .rules-box li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote {
+            font-size: 0.95rem;
+            color: #ff9ebb;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(255, 158, 187, 0.5);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Beautiful Join Button */
+        .join-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 12px 35px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px #ff758c;
+            transition: 0.3s ease;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .join-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff7eb3, 0 0 10px #fff;
+        }
+
+        /* Animations */
+        @keyframes rotateDP {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatAround {
+            0% { top: 5%; left: 5%; }
+            25% { top: 80%; left: 20%; }
+            50% { top: 10%; left: 70%; }
+            75% { top: 85%; left: 60%; }
+            100% { top: 40%; left: 10%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music (Autoplay and Loop) -->
+    <iframe src="https://files.catbox.moe/9t77g7.mp3" allow="autoplay" style="display:none" id="audio"></iframe>
+    <audio autoplay loop>
+        <source src="https://files.catbox.moe/9t77g7.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Background Video -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="https://files.catbox.moe/ahug0j.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Floating Owner Name -->
+    <div class="moving-name">☬『ＯᎶᎶᎽ』☬</div>
+
+    <!-- Main Card -->
+    <div class="container">
+        <!-- Rotating Group DP (Fixed Link) -->
+        <img class="gc-dp" src="https://i.ibb.co/PGTpJpRX/image.jpg" onerror="this.src='https://i.ibb.co/680fVfF/image.jpg';" alt="Group DP">
+
+        <!-- GC Name with Glow -->
+        <div class="gc-name">🌸『𝓛𝓸𝓿𝓮 𝓢𝓽𝓸𝓻𝔂』🌸</div>
+        
+        <div class="welcome-msg">💞 Welcome To Our Cute & Beautiful World 💞</div>
+
+        <!-- Rules Box -->
+        <div class="rules-box">
+            <ul>
+                <li>💖 Respect Everyone</li>
+                <li>🌷 No Hate • Only Love</li>
+                <li>🥺 Stay Loyal & Friendly</li>
+                <li>✨ Keep Chatting & Enjoy</li>
+                <li>🫶 No Fighting Allowed</li>
+                <li>🌙 Spread Positive Vibes</li>
+                <li>💕 Couple Lovers Welcome</li>
+                <li>🎀 Make Sweet Memories Here</li>
+            </ul>
+            <hr style="border: 0; height: 1px; background: rgba(255,117,140,0.3); margin: 10px 0;">
+            <div class="quote">
+                💌 “Love Is Not Perfect,<br>But True Love Always Stays.” 💌
+            </div>
+        </div>
+
+        <!-- Join Button -->
+        <a href="https://chat.whatsapp.com/D5rF2DJwsna79H9ZDOMT05" target="_blank" class="join-btn">Join Group 🌸</a>
+    </div>
+
+</body>
+</html>
